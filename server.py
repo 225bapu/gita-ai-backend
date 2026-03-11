@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 knowledge = {}
 
-file = open("../dataset/knowledge.txt","r",encoding="utf-8")
+file = open("knowledge.txt","r",encoding="utf-8")
 
 for line in file:
     if "|" in line:
@@ -21,5 +21,6 @@ def ask():
             return jsonify({"answer":knowledge[q]})
 
     return jsonify({"answer":"I don't know yet"})
+
 
 app.run(host="0.0.0.0", port=5000)
